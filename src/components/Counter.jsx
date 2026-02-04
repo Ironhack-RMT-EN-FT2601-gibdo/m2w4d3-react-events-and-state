@@ -2,26 +2,25 @@ import { useState } from "react"
 
 function Counter() {
 
-  // let counterValue = 0;
-  // a State is an object inside components that record ALL values that will change. After the changes, react will cause a re-render of the component.
-  const [counterValue, setCounterValue] = useState(0)
-  // const [recordedValue, setRecordedValue] = useState(0)
-  //1. value of the state
-  //2. function used to update the state
-  console.log(counterValue)
+  // A State is an object inside components that record ALL values that will change based on events. 
+  // After any change, react will cause a re-render of the component to reflect the new values.
+  const [counterValue, setCounterValue] = useState(0) // initial stata value inside parenthesis.
+  //1. counterValue => the state
+  //2. setCounterValue => function used to update the state
 
   const handleIncreaseCounter = () => {
-    // counterValue = counterValue + 1
-    // console.log("trying to increase counter", counterValue)
+    
+    // Using set functions will ALWAYS cause a re-render of the component when the state changes, reflecting the new values
+    setCounterValue( counterValue + 1 ) // pass the new value inside the parenthesis
 
-    //! in react states, there is a rule that states: WE SHOULD NEVER DIRECTLY CHANGE THE VALUE OF THE STATE
-    // counterValue = counterValue + 1
-    setCounterValue( counterValue + 1 )
-    // set functions will ALWAYS cause a re-render of the component when the state changes.
+    //! Rule: WE SHOULD NEVER DIRECTLY CHANGE OR MUTATE THE STATE. ALWAYS USE the set function.
   }
 
   const handleDivideByTwo = () => {
-    setCounterValue( counterValue / 2 ) 
+
+    let divisionValue = counterValue / 2
+
+    setCounterValue( divisionValue ) 
   }
 
   return (

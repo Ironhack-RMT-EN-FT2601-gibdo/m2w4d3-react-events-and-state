@@ -11,4 +11,40 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  text-align: center;
+}
+
+.characters-container {
+  display: flex;
+  justify-content: space-evenly
+}
+
+.card {
+  border: 2px solid white;
+  padding: 5px 5px 20px 5px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.random-card {
+  background-color: rgb(97, 54, 0);
+}
+
+#random button {
+  background-color: rgb(97, 54, 0);
+  border-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.fav-card {
+  background-color: rgb(10, 74, 0);
+}
+
+.fav-card button {
+  background-color: darkred;
+  border-color: white;
+  padding: 10px;
+  border-radius: 5px;
 }

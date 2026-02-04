@@ -1,5 +1,6 @@
 import Events from "./components/Events"
 import Counter from "./components/Counter"
+import Characters from "./components/Characters"
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
     <>
       {/* <Events /> */}
 
-      <Counter />
+      {/* <Counter /> */}
+
+      <Characters />
     </>
   )
 }
