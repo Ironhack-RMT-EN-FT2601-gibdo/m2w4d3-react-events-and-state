@@ -1,15 +1,11 @@
 import { useState } from "react"
 import allCharacters from "../data/characterList.json"
-console.log(allCharacters)
+// console.log(allCharacters)
 
 function Characters() {
 
   const [randomCharacter, setRandomCharacter] = useState(null)
-  const [favouriteList, setFavouriteList] = useState([{
-    id: 175,
-    name: "Dobby",
-    description: "House-elf originally belonging to the Malfoy family until he is set free by Harry in Chamber of Secrets."
-  }])
+  const [favouriteList, setFavouriteList] = useState([])
   // console.log(favouriteList)
 
   const handleAddRandomCharacter = () => {
@@ -23,12 +19,36 @@ function Characters() {
       // push
       // we are getting the current random Char and adding to the list of favourites.
       console.log(randomCharacter)
+      // favouriteList.push(randomCharacter)// mutating the state :(
+
+      // instead, we clone it
       let clone = [...favouriteList]
-      clone.push(randomCharacter) // mutating the state :(
+      clone.push(randomCharacter) 
 
       setFavouriteList(clone)
 
       // setFavouriteList([...favouriteList, randomCharacter])
+  }
+
+  const handleRemoveFromFavourite = (index) => {
+    console.log("trying to remove a character", index) // 42
+
+    //? how to I know which character am I trying to remove?
+    //? how do we remove it from the fav list?
+
+    // [{id: 81}, {id: 42}, {id: 33}, {id: 8}]
+
+    //* solution with id & filter
+    // let filteredArr = favouriteList.filter((eachFav) => {
+    //   return eachFav.id !== id
+    // })
+    // setFavouriteList(filteredArr)
+
+    //* solution with index & splice
+    let clone = [...favouriteList]
+    clone.splice(index, 1)
+    setFavouriteList(clone)
+
   }
 
   return (
@@ -54,21 +74,19 @@ function Characters() {
       <div id="fav">
 
         <h2>Favourite Characters</h2>
-        {favouriteList.map((eachFavourite) => {
+        {favouriteList.map((eachFavourite, index) => {
 
             return (
-              <div className="card fav-card">
+              <div className="card fav-card" key={eachFavourite.id}>
                 <h5>Name: {eachFavourite.name} </h5>
                 <p>Description: {eachFavourite.description}</p>
 
-                <button>Remove from Fav</button>
+                <button onClick={() => handleRemoveFromFavourite(index)}>Remove from Fav</button>
               </div>
             )
 
         })}
-
       </div>
-
     </div>
   )
 }

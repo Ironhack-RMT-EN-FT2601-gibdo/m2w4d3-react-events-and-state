@@ -20,6 +20,10 @@
   justify-content: space-evenly
 }
 
+#random, #fav {
+  width: 48%;
+}
+
 .card {
   border: 2px solid white;
   padding: 5px 5px 20px 5px;
